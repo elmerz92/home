@@ -316,10 +316,10 @@ h1, h2, h3, h4, h5, h6 {
   margin: 0;
   order: 2;
 }
-
-header.header-tops.header-top nav.nav-menu {
-    display: block !important;
+#header.header-tops.header-top .textContainer{
+  display:none;
 }
+
 @media (max-width: 768px) {
   #header.header-top {
     height: 60px;

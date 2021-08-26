@@ -320,8 +320,8 @@ h1, h2, h3, h4, h5, h6 {
   order: 2;
 }
 
-header.header-tops.header-top nav.nav-menu {
-  display: block !important;
+#header.header-tops.header-top .textContainer {
+  display: none;
 }
 
 @media (max-width: 768px) {
