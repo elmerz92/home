@@ -1,20 +1,22 @@
 /*--------------------------------------------------------------
 # General
 --------------------------------------------------------------*/
+@import url(https://fonts.googleapis.com/css?family=Raleway:700,400);
 body {
   font-family: "Open Sans", sans-serif;
   background-color: #040404;
   color: #fff;
   position: relative;
-  // background: transparent;
 }
+
 div#particles-js {
-    position: absolute;
-    top: 0;
-    z-index: -1;
-    width:100%;
-    height: 100vh;
+  position: absolute;
+  top: 0;
+  z-index: -1;
+  width: 100%;
+  height: 100vh;
 }
+
 body::before {
   content: "";
   position: fixed;
@@ -284,15 +286,16 @@ h1, h2, h3, h4, h5, h6 {
   right: 0;
   background: rgba(0, 0, 0, 0.9);
 }
-#header .logo{
+
+#header .logo {
   height: 0;
-  width:0;
+  width: 0;
   transition: all 500ms ease;
 }
 
-#header.header-top .logo{
+#header.header-top .logo {
   height: auto;
-  width:auto;
+  width: auto;
   max-width: 50px;
   transition: all 500ms ease;
 }
@@ -304,7 +307,7 @@ h1, h2, h3, h4, h5, h6 {
 #header.header-top h1 {
   margin-right: auto;
   font-size: 36px;
-  margin-top:0!important;
+  margin-top: 0 !important;
 }
 
 #header.header-top .container {
@@ -318,8 +321,9 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 header.header-tops.header-top nav.nav-menu {
-    display: block !important;
+  display: block !important;
 }
+
 @media (max-width: 768px) {
   #header.header-top {
     height: 60px;
@@ -510,7 +514,7 @@ section .container {
   transition: ease-in-out 0.3s;
 }
 
-.interests .icon-box i,.interests .icon-box img {
+.interests .icon-box i, .interests .icon-box img {
   font-size: 32px;
   padding-right: 10px;
   line-height: 1;
@@ -745,7 +749,7 @@ section .container {
 }
 
 .services .icon-box:hover .icon::before {
-  background: rgba(21,21,21,0.4);
+  background: rgba(21, 21, 21, 0.4);
 }
 
 .services .icon-box:hover h4 a, .services .icon-box:hover p {
@@ -1200,62 +1204,27 @@ section .container {
   color: #fff;
 }
 
-@function vendor-args($arg, $vendor) {
-    $result: ();
-    @each $i in $arg {
-      @if $i == transform { $result: append($result, #{$vendor}$i); }
-      @else { $result: append($result, $i); }
-    }
-  @return $result;
+.noTransition .loopCol {
+  -webkit-transition: none;
+  -moz-transition: none;
+  -ms-transition: none;
+  -o-transition: none;
+  transition: none;
 }
 
-// general vendor mixin
-@mixin vendor($property, $args...){
-  @each $vendor in ('-webkit-', '-moz-', '-ms-', '-o-', '') {
-    $out: null;
-    @each $arg in nth($args,1) {
-      $out: ($out, vendor-args($arg, $vendor));
-    }
-    #{$vendor}#{$property}: $out;
-  }
+.noTransition .fixedBg {
+  -webkit-transition: none;
+  -moz-transition: none;
+  -ms-transition: none;
+  -o-transition: none;
+  transition: none;
 }
 
-// general transition mixin
-@mixin transition($args...) {
-  @include vendor(transition, $args);
+* {
+  box-sizing: border-box;
 }
 
-@import url(https://fonts.googleapis.com/css?family=Raleway:700,400);
-
-$transitionBg: 20s;
-
-@mixin transform($value){
-  -webkit-transform: ($value);
-     -moz-transform: ($value);
-      -ms-transform: ($value);
-          transform: ($value);
-}
-@mixin transform-style($value){
-  -webkit-transform-style: ($value);
-     -moz-transform-style: ($value);
-      -ms-transform-style: ($value);
-          transform-style: ($value);
-}
-
-.noTransition{ // stuff for fixin' the transition on the first change, instant, no duration
-
-	.loopCol{
-		@include transition(none);
-	}
-	.fixedBg{
-		@include transition(none);
-	}
-}
-*{
-	box-sizing: border-box;
-}
-
-.textContainer{
+.textContainer {
   position: relative;
   text-align: left;
   font-size: 2rem;
@@ -1266,129 +1235,191 @@ $transitionBg: 20s;
   line-height: 1.05;
   min-height: 2rem;
 }
-.jstext{
-	width: 100%;
-	padding-right: 50px;
-	&:after{
-		content: "_";
-		animation: sliding 2s 0.3s 1 forwards, blinking 2s 2s infinite forwards;
-		-webkit-animation: sliding 2s 0.3s 1  forwards, blinking 2s 2s infinite forwards;
-		-moz-animation: sliding 2s 0.3s 1  forwards, blinking 2s 2s infinite forwards;
-		-o-animation: sliding 2s 0.3s 1  forwards, blinking 2s 2s infinite forwards;
-		position: absolute;
-		@include transform(translate(10%,-10%));
-		overflow: hidden;
-		width: 0px;
-	}
-}
-.text{
-	color: #46200A;
-}
-.original{
-	opacity: 0;
-	font-weight: 400;
-	@include transition(all 0.35s);
-	@include transform(translateY(50%));
-	-webkit-filter: blur(2px);
-  	-moz-filter: blur(2px);
-  	-o-filter: blur(2px);
-  	-ms-filter: blur(2px);
-  	filter: blur(2px);
-  	&:hover{
-	-webkit-filter: blur(0px);
-  	-moz-filter: blur(0);
-  	-o-filter: blur(0px);
-  	-ms-filter: blur(0px);
-  	filter: blur(0px);
-  	}
-}
-.onScreen{
-	opacity: 1;
-	@include transform(translateY(0%));
 
-}
-#brName{
-	display: none;
+.jstext {
+  width: 100%;
+  padding-right: 50px;
 }
 
-@keyframes sliding{
-	0%{width: 0px;}
-	100%{width: 100px;}
-}
-@-webkit-keyframes sliding{
-	0%{width: 0px;}
-	100%{width: 100px;}
-}
-@-moz-keyframes sliding{
-	0%{width: 0px;}
-	100%{width: 100px;}
-}
-@-o-keyframes sliding{
-	0%{width: 0px;}
-	100%{width: 100px;}
+.jstext:after {
+  content: "_";
+  animation: sliding 2s 0.3s 1 forwards, blinking 2s 2s infinite forwards;
+  -webkit-animation: sliding 2s 0.3s 1  forwards, blinking 2s 2s infinite forwards;
+  -moz-animation: sliding 2s 0.3s 1  forwards, blinking 2s 2s infinite forwards;
+  -o-animation: sliding 2s 0.3s 1  forwards, blinking 2s 2s infinite forwards;
+  position: absolute;
+  -webkit-transform: translate(10%, -10%);
+  -moz-transform: translate(10%, -10%);
+  -ms-transform: translate(10%, -10%);
+  transform: translate(10%, -10%);
+  overflow: hidden;
+  width: 0px;
 }
 
-
-
-@keyframes blinking{
-	0%{opacity: 0;}
-	50%{opacity: 1;}
-	100%{opacity: 0;}
-}
-@-webkit-keyframes blinking{
-	0%{opacity: 0;}
-	50%{opacity: 1;}
-	100%{opacity: 0;}
-}
-@-moz-keyframes blinking{
-	0%{opacity: 0;}
-	50%{opacity: 1;}
-	100%{opacity: 0;}
-}
-@-o-keyframes blinking{
-	0%{opacity: 0;}
-	50%{opacity: 1;}
-	100%{opacity: 0;}
+.text {
+  color: #46200A;
 }
 
+.original {
+  opacity: 0;
+  font-weight: 400;
+  -webkit-transition: all 0.35s;
+  -moz-transition: all 0.35s;
+  -ms-transition: all 0.35s;
+  -o-transition: all 0.35s;
+  transition: all 0.35s;
+  -webkit-transform: translateY(50%);
+  -moz-transform: translateY(50%);
+  -ms-transform: translateY(50%);
+  transform: translateY(50%);
+  -webkit-filter: blur(2px);
+  -moz-filter: blur(2px);
+  -o-filter: blur(2px);
+  -ms-filter: blur(2px);
+  filter: blur(2px);
+}
 
+.original:hover {
+  -webkit-filter: blur(0px);
+  -moz-filter: blur(0);
+  -o-filter: blur(0px);
+  -ms-filter: blur(0px);
+  filter: blur(0px);
+}
+
+.onScreen {
+  opacity: 1;
+  -webkit-transform: translateY(0%);
+  -moz-transform: translateY(0%);
+  -ms-transform: translateY(0%);
+  transform: translateY(0%);
+}
+
+#brName {
+  display: none;
+}
+
+@keyframes sliding {
+  0% {
+    width: 0px;
+  }
+  100% {
+    width: 100px;
+  }
+}
+
+@-webkit-keyframes sliding {
+  0% {
+    width: 0px;
+  }
+  100% {
+    width: 100px;
+  }
+}
+
+@-moz-keyframes sliding {
+  0% {
+    width: 0px;
+  }
+  100% {
+    width: 100px;
+  }
+}
+
+@-o-keyframes sliding {
+  0% {
+    width: 0px;
+  }
+  100% {
+    width: 100px;
+  }
+}
+
+@keyframes blinking {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@-webkit-keyframes blinking {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@-moz-keyframes blinking {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@-o-keyframes blinking {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
 
 /* -------------------------------
 		 MEDIA QUERIES
 ----------------------------------*/
+@media all and (max-width: 1024px) {
+  .textContainer {
+    min-height: 75vh;
+  }
+}
 
-@media all and (max-width:1024px){
-	.textContainer{
-		min-height: 75vh;
-	}
- }
+@media all and (max-width: 768px) {
+  .interests .icon-box h3 {
+    font-size: 12px;
+  }
+  .interests.container {
+    padding: 30px 0;
+  }
+  #brName {
+    display: block;
+  }
+  .textContainer {
+    min-height: 20px;
+    font-size: 20px;
+    letter-spacing: -1px;
+  }
+  .jstext {
+    padding-right: 0px;
+    text-align: center;
+  }
+}
 
-
-@media all and (max-width:768px){
-	#brName{
-		display: block;
-	}
-	.textContainer{
-		min-height: 80vh;
-    	font-size: 11.2vw;
-    	letter-spacing: -.45vw;
-	}
-	.jstext{
-	padding-right: 0px;
-	}
-
-
- }
-
-@media all and (max-width:468px){
-	.textContainer{
-		min-height: 80vh;
-	    font-size: 11.4vw;
-	    letter-spacing: -.45vw;
-	}
-	.jstext{
-	padding-right: 0px;
-
-	}
-
+@media all and (max-width: 468px) {
+  .textContainer {
+    min-height: 20px;
+    font-size: 20px;
+    letter-spacing: -.1px;
+  }
+  .jstext {
+    padding-right: 0px;
+  }
 }
