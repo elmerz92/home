@@ -795,12 +795,20 @@ section .container {
   margin-right: 0;
 }
 
+.portfolio .portfolio-wrap img {
+  opacity: 0;
+}
+
+.portfolio .portfolio-item {
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
 .portfolio .portfolio-wrap {
   transition: 0.3s;
   position: relative;
   overflow: hidden;
   z-index: 1;
-  background: rgba(0, 0, 0, 0.6);
 }
 
 .portfolio .portfolio-wrap::before {
