@@ -183,17 +183,17 @@
   		},
   		{	sentence: "is probably writing code right now."
   		},
-  		{	sentence: "is learning more SCSS and practicing JS"
+  		{	sentence: "is learning more animations and practicing GSAP"
   		},
   		{	sentence: "looks inspiration on Codepen."
   		},
   		{	sentence: "is working on some Shopify store."
   		},
-  		{	sentence: "it's still a n00b, but want to get better."
+  		{	sentence: "it's looking forward to get better."
   		},
   		{	sentence: "who?"
   		},
-  		{	sentence: "is learning basis of ReactJS"
+  		{	sentence: "is practicing more Vue"
   		},
   		{	sentence: "love playing videogames."
   		},
